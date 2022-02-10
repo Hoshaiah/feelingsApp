@@ -11,8 +11,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="flex justify-center bg-gray-200 h-full">
+    <main class="container flex justify-center align-center h-full">
+      <nav class="fixed flex pl-10 pt-2 pb-2 w-full bg-white">
+        <h1 class="text-blue-500 text-2xl font-semibold">Feelings</h1>
+      </nav>
       <%= yield %>
     </main>
   </body>

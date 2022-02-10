@@ -1,33 +1,32 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Entries</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Thoughts</th>
-      <th>Emotion</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="mt-20 pl-10 pr-10 w-full h-max flex flex-col justify-center">
 
-  <tbody>
-    <% @entries.each do |entry| %>
-      <tr>
-        <td><%= entry.date %></td>
-        <td><%= entry.thoughts %></td>
-        <td><%= entry.emotion %></td>
-        <td><%= entry.rating %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <h1>Entries</h1>
+      <% @entries.each do |entry| %>
+        <div class="mb-5 min-h-min w-full bg-white rounded-md">
+          <div id="info-pane">
+            <div id="info-date">
+              <p><%= entry.date %></p>
+            </div>
+            <div id="info-feeling-ratings">
+              <p><%= entry.emotion %></p>
+              <p><%= entry.rating %></p>
+            </div>
+          </div>
+          <div id="thoughts-pane" class="w-3/4 h-full">
+            <p><%= entry.thoughts %></p>
+          </div>
+                    <td><%= link_to 'Show', entry %></td>
+          <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+          <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      <% end %>
+  <%= link_to 'New Entry', new_entry_path %>
+</div>
 
-<br>
 
-<%= link_to 'New Entry', new_entry_path %>
+
+
