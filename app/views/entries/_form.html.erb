@@ -19,7 +19,7 @@
     </div>
 
     <p class="mb-3 font-bold"> How are you feeling? </p>
-    <div class="flex w-5/6 flex flex-wrap mb-4">
+    <div class="flex w-5/6 max-w-xl flex flex-wrap mb-4">
       <div class="w-20 h-24 mb-2">
         <%= form.label :emotion, 'angry', :value => 'angry', :class => "h-24 w-20 absolute text-center z-10" %>
         <%= form.radio_button :emotion, 'angry' %> 
@@ -160,5 +160,7 @@
     <div class="actions">
       <%= form.submit%>
     </div>
+    <%= link_to 'Show', @entry %> |
+    <%= link_to 'Back', entries_path %>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /entries
   def index
     @entries = Entry.all
@@ -18,10 +18,25 @@ class EntriesController < ApplicationController
       11 => "Nov",
       12 => "Dec"
     }
+
   end
 
   # GET /entries/1
   def show
+    @months = {
+      1 => "Jan",
+      2 => "Feb",
+      3 => "Mar",
+      4 => "Apr",
+      5 => "May",
+      6 => "Jun",
+      7 => "Jul",
+      8 => "Aug",
+      9 => "Sept",
+      10 => "Oct",
+      11 => "Nov",
+      12 => "Dec"
+    }
   end
 
   # GET /entries/new
