@@ -14,7 +14,10 @@
               <p class="z-10 text-gray-400 mr-2 self-end text-2xs"><%= entry.date.year %></p>
             </div>
             <div id="info-feeling-ratings" class="flex h-1/2 justify-center items-center">
-              <div class="w-1/2 h-fit flex justify-center items-center" ><p><%= entry.emotion %></p></div>
+              <div class="w-full h-fit flex flex-col justify-center items-center" >
+                <%= image_tag("emotions/#{entry.emotion}.png", :class=> "w-12 h-12 ")%>
+                <p><%=entry.emotion%></p>
+              </div>
             </div>
           </div>
           <div id="thoughts-pane" class="w-full h-full flex flex-col">
