@@ -1,37 +1,164 @@
-<%= form_with(model: entry) do |form| %>
-  <% if entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
-      <ul>
-        <% entry.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="mt-20">
+  <%= form_with(model: entry) do |form| %>
+    <% if entry.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+        <ul>
+          <% entry.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-8">
+      <%= form.label :date, :class=> "font-bold" %>
+      <%= form.date_select :date %>
+    </div>
+
+    <p class="mb-3 font-bold"> How are you feeling? </p>
+    <div class="flex w-5/6 flex flex-wrap mb-4">
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'angry', :value => 'angry', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'angry' %> 
+        <%= image_tag("emotions/angry.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'annoyed', :value => 'annoyed', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'annoyed' %> 
+        <%= image_tag("emotions/annoyed.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'cheeky', :value => 'cheeky', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'cheeky' %> 
+        <%= image_tag("emotions/cheeky.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'confused', :value => 'confused', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'confused' %> 
+        <%= image_tag("emotions/confused.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'curious', :value => 'curious', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'curious' %> 
+        <%= image_tag("emotions/curious.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'ded', :value => 'ded', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'ded' %> 
+        <%= image_tag("emotions/ded.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'ecstatic', :value => 'ecstatic', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'ecstatic' %> 
+        <%= image_tag("emotions/ecstatic.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'happy', :value => 'happy', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'happy' %> 
+        <%= image_tag("emotions/happy.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'horrified', :value => 'horrified', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'horrified' %> 
+        <%= image_tag("emotions/horrified.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'kilig', :value => 'kilig', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'kilig' %> 
+        <%= image_tag("emotions/kilig.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'neutral', :value => 'neutral', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'neutral' %> 
+        <%= image_tag("emotions/neutral.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'sad', :value => 'sad', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'sad' %> 
+        <%= image_tag("emotions/sad.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'shocked', :value => 'shocked', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'shocked' %> 
+        <%= image_tag("emotions/shocked.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'tampo', :value => 'tampo', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'tampo' %> 
+        <%= image_tag("emotions/tampo.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+      <div class="w-20 h-24 mb-2">
+        <%= form.label :emotion, 'weird', :value => 'weird', :class => "h-24 w-20 absolute text-center z-10" %>
+        <%= form.radio_button :emotion, 'weird' %> 
+        <%= image_tag("emotions/weird.png", :class=> "relative inset-y-5 inset-x-2 w-16 h-16 ")%>
+      </div>
+    </div>
+    
+    <p class="mb-3 font-bold"> Rate this day. </p>
+    <div class="flex w-5/6 flex flex-wrap mb-4">
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '1', :value => '1', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '1' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '2', :value => '2', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '2' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '3', :value => '3', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '3' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '4', :value => '4', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '4' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '5', :value => '5', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '5' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '6', :value => '6', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '6' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '7', :value => '7', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '7' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '8', :value => '8', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '8' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '9', :value => '9', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '9' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+      <div class="w-10 h-10 mb-2">
+        <%= form.label :rating, '10', :value => '10', :class => "h-10 w-10 absolute text-center z-10 font-bold text-md mt-2.5" %>
+        <%= form.radio_button :rating, '10' %> 
+        <div class="w-10 h-10 rounded-full"></div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <%= form.label :thoughts, "How was your day?", :class=> "font-bold mb-3" %>
+      <%= form.text_area :thoughts, :class=> "w-4/6 h-40" %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit%>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :thoughts %>
-    <%= form.text_area :thoughts %>
-  </div>
-
-  <div class="field">
-    <%= form.label :emotion %>
-    <%= form.text_field :emotion %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
