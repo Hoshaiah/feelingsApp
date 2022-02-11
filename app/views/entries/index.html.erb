@@ -6,22 +6,26 @@
 
   <h1>Entries</h1>
       <% @entries.each do |entry| %>
-        <div class="mb-5 min-h-min w-full bg-white rounded-md">
-          <div id="info-pane">
-            <div id="info-date">
-              <p><%= entry.date %></p>
+        <div class="mb-5 min-h-min w-full h-40 bg-white rounded-md flex">
+          <div id="info-pane" class="w-20 h-full flex flex-col">
+            <div id="info-date" class="w-20 h-1/2 flex flex-col" style="background-image:url(<%= image_url('calendar.jpg') %>); background-size: contain; background-repeat: no-repeat" >
+              <p class="z-10 text-white mt-1 self-center font-bold"><%= @months[entry.date.month] %></p>
+              <p class="z-10 text-black mt-2 self-center font-bold text-2xl"><%= entry.date.day %></p>
+              <p class="z-10 text-gray-400 mr-2 self-end text-2xs"><%= entry.date.year %></p>
             </div>
-            <div id="info-feeling-ratings">
-              <p><%= entry.emotion %></p>
-              <p><%= entry.rating %></p>
+            <div id="info-feeling-ratings" class="flex h-1/2 justify-center items-center">
+              <div class="w-1/2 h-fit flex justify-center items-center" ><p><%= entry.emotion %></p></div>
             </div>
           </div>
-          <div id="thoughts-pane" class="w-3/4 h-full">
-            <p><%= entry.thoughts %></p>
+          <div id="thoughts-pane" class="w-full h-full flex flex-col">
+            <div class="w-fit h-fit mr-2 flex justify-center items-center self-end" ><p>Day Rating: <%= entry.rating %> /10</p></div>
+            <p class="h-5/6 pl-5 pr-5 pt-1 pb-1"><%= entry.thoughts %></p>
+            <div id="links" class="flex h-1/6 justify-end"> 
+              <p class="pl-2 pr-2"><%= link_to 'Show', entry %></p>
+              <p class="pl-2 pr-2"><%= link_to 'Edit', edit_entry_path(entry) %></p>
+              <p  class="pl-2 pr-2"><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
           </div>
-                    <td><%= link_to 'Show', entry %></td>
-          <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-          <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </div>
       <% end %>
   <%= link_to 'New Entry', new_entry_path %>
