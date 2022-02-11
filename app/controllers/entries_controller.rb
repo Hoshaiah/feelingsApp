@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   
   # GET /entries
   def index
-    @entries = Entry.all
+    @entries = Entry.all.order(:date).reverse
     @months = {
       1 => "Jan",
       2 => "Feb",

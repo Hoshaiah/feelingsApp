@@ -1,13 +1,14 @@
 
-<div class="mt-20 pl-10 pr-10 w-full h-max flex flex-col justify-center">
-  <p id="notice" class="mt-15"><%= notice %></p>
-
-  <div class="mb-5 min-h-min w-full h-40 bg-white rounded-md flex">
+<div class="mt-20 pl-10 pr-10 w-full h-max flex flex-col justify-center p-5 bg-white">
+  <p id="notice" class="mt-15 mb-6"><%= notice %></p>
+  <div class="mb-5 min-h-min w-full h-40 bg-white rounded-md flex <%=@entry.emotion%>">
       <div id="info-pane" class="w-20 h-full flex flex-col">
       <div id="info-date" class="w-20 h-1/2 flex flex-col" style="background-image:url(<%= image_url('calendar.jpg') %>); background-size: contain; background-repeat: no-repeat" >
-        <p class="z-10 text-white mt-1 self-center font-bold"><%= @months[@entry.date.month] %></p>
-        <p class="z-10 text-black mt-2 self-center font-bold text-2xl"><%= @entry.date.day %></p>
-        <p class="z-10 text-gray-400 mr-2 self-end text-2xs"><%= @entry.date.year %></p>
+        <p class="z-10 text-white mt-2 self-center font-bold"><%= @months[@entry.date.month] %></p>
+        <p class="z-10 text-black mt-1 self-center font-bold text-2xl"><%= @entry.date.day %></p>
+              <div class="bg-black h-8 flex justify-end pr-2">
+                <p class="z-10 w-fit h-fit text-white self-end text-2xs"><%= @entry.date.year %></p>
+              </div>
       </div>
       <div id="info-feeling-ratings" class="flex h-1/2 justify-center items-center">
         <div class="w-full h-fit flex flex-col justify-center items-center" >

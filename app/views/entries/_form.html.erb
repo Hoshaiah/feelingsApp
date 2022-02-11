@@ -1,5 +1,5 @@
 
-<div class="mt-20">
+<div class="pt-20 pl-20 pr-20 bg-gradient-to-r from-red-300 via-white to-blue-300">
   <%= form_with(model: entry) do |form| %>
     <% if entry.errors.any? %>
       <div id="error_explanation">
@@ -157,7 +157,7 @@
     </div>
 
 
-    <div class="actions">
+    <div class="actions hover:bg-regal hover:text-white w-fit p-1 rounded-md text-bold">
       <%= form.submit%>
     </div>
     <%= link_to 'Show', @entry %> |

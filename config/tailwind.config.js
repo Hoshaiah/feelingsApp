@@ -14,6 +14,9 @@ module.exports = {
       fontSize: {
         "2xs": "0.6rem"
       },
+      colors:{
+        'regal':"#949393"
+      },
     },
   },
   plugins: [
